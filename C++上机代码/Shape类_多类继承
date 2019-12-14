@@ -1,0 +1,49 @@
+#include<iostream>
+#define PI 3.14
+using namespace std;
+
+class Shape {
+public:
+	virtual double area() { return 0;}
+};
+
+class Circle :public Shape {
+public:
+	double radius;
+	Circle(double r):radius(r) {}
+	double area() {
+		return radius*radius*PI;
+	}
+};
+
+class Rectangle :public Shape {
+public:
+	double width;
+	double high;
+	Rectangle(double a,double b) :width(a),high(b) {}
+	double area() {
+		return width*high;
+	}
+};
+
+class Triangle :public Shape {
+public:
+	double width;
+	double high;
+	Triangle(double a, double b) :width(a), high(b) {}
+	double area() {
+		return width*high*0.5;
+	}
+};
+
+int main() {
+	Circle circle(12.6);
+	Rectangle rectangle(2, 3.5);
+	Triangle triangle(4.5, 8.4);
+	Shape *p[3];
+	p[0] = &circle;
+	p[1] = &rectangle;
+	p[2] = &triangle;
+	cout << p[0]->area() + p[1]->area() + p[2]->area() << endl;
+	system("pause");
+}
