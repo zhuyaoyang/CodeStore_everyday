@@ -18,6 +18,7 @@ int reverse(int x) {
 	else return j;
 }
 
+
 int main() {
 	cout << reverse(-128289310);
 	system("pause");
